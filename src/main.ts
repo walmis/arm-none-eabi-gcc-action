@@ -15,6 +15,7 @@ async function run(): Promise<void> {
       throw new Error(`Could not find gcc executable in ${gccPath}`);
     }
     core.info(`Adding ${gccPath} to PATH.`);
+    core.info(`Arch ${process.arch}`);
     core.addPath(gccPath);
 
     // Export path for other tools

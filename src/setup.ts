@@ -17,7 +17,7 @@ export async function install(release: string, platform: string): Promise<string
 
   // Convert the GCC version to Semver so that it can be used with the GH cache
   const toolVersion = gcc.gccVersionToSemver(release);
-  const cacheKey = `${toolName}-${toolVersion}-${platform}`;
+  const cacheKey = `${toolName}-${toolVersion}-${platform}-${process.arch}`;
   const installPath = path.join(os.homedir(), cacheKey);
   core.debug(`Cache key: ${cacheKey}`);
 
