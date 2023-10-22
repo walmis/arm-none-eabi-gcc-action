@@ -618,7 +618,11 @@ export function distributionUrl(version: string, platform: string): UrlData {
       osName = 'mac_x86_64';
       break;
     case 'linux':
-      osName = 'linux_x86_64';
+      if(process.arch == 'arm64') {
+        osName = 'linux_aarch64';
+      } else {
+        osName = 'linux_x86_64';
+      }
       break;
     case 'win32':
       osName = 'win32';
